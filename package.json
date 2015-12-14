@@ -1,0 +1,26 @@
+{
+  "name": "picture-me-api",
+  "version": "1.0.0",
+  "description": "picture-me-api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enerjay/picture-me-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+      "body-parser": "^1.14.1",
+      "cors": "^2.7.1",
+      "express": "^4.13.3",
+      "jsonwebtoken": "^5.4.1",
+      "mongoose": "^4.3.1",
+      "morgan": "^1.6.1",
+      "request-promise": "^1.0.2"
+  
+  },
+  "homepage": "https://github.com/enerjay/picture-me-api#readme"
+}
