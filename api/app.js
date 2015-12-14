@@ -26,25 +26,21 @@ app.post('/auth/facebook', function(req, res) {
     code: req.body.code,
     client_id: req.body.clientId,
     client_secret: process.env.FACEBOOK_API_SECRET,
-    redirect_uri: config.appUrl + "/"
+    redirect_uri: config.appUrl + "/",
+    scope: 'user_birthday'
   };
-
-  
   request.get({ url: config.oauth.facebook.accessTokenUrl, qs: params, json: true })
     .then(function(accessToken) {
-      
       return request.get({ url: config.oauth.facebook.profileUrl, qs: accessToken, json: true });
     })
     .then(function(profile) {
       return User.findOne({ email: profile.email })
         .then(function(user) {
-          
           if(user) {
             user.facebookId = profile.id;
             user.picture = user.picture || profile.picture.data.url;
           }
           else {
-            
             user = new User({
               facebookId: profile.id,
               name: profile.name,
@@ -57,12 +53,11 @@ app.post('/auth/facebook', function(req, res) {
         })
       })
       .then(function(user) {
-        
         var token = jwt.sign(user, config.secret, { expiresIn: '24h' });
         return res.send({ token: token });
       })
       .catch(function(err) {
-        
+        console.log(err);
         return res.status(500).json({ error: err });
       });
 });
