@@ -9,3 +9,5 @@ function MainController($auth) {
     $auth.authenticate(provider);
   }
 
+}
+

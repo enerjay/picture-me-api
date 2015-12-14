@@ -8,4 +8,4 @@ var userSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('User', userSchema);
-Status API Training Shop Blog About Pricing
+

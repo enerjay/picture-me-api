@@ -1,17 +1,79 @@
-<html ng-app="picturemeApp">
+<!DOCTYPE html>
+<html>
 <head>
-  <title></title>
-
-  <!-- External Modules -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <script src="//cdn.jsdelivr.net/satellizer/0.13.1/satellizer.min.js"></script>
-
-  <!-- Internal Modules -->
+  <title>Picture Me</title>
+  <!-- external js files -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+  
+  <!-- internal js files -->
   <script src="./js/app.js"></script>
-  <script src="./js/controllers/mainController.js"></script>
-  <script src="./js/services/oauthKeys.js"></script>
+  <script src="./js/jquery-2.1.4.min.js"></script>
+  <script src="./js/masonry.js"></script>
+  <script src="./js/grid.js"></script>
+  
+  <!-- stylesheets -->
+  <link rel="stylesheet" type="text/css" href="./css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css"> 
 </head>
-<body ng-controller="MainController as main">
-  <button ng-click="main.authenticate('facebook')">Sign in with Facebook</button>
+
+<body>
+<!-- navbar and logo -->
+<div class="container">
+  <div id="nav" class="twelve columns">
+ <ul>
+    <li><a href="#"><img src="./images/picture-me-logo.png" class="logo"></a></li>
+    <li><a href="#" class="nav-right">About</a></li>
+  </ul>
+  <div class="grey_line"></div>
+
+<!-- Page main layout for grid-->
+
+<div class="face"></div>
+<div class="grid">
+
+ 
+    <div class="grid-item"><img src="./images/grid_pics/1.jpg" class="img-big opacity size"></div>
+    <div class="grid-item"><img src="./images/grid_pics/2.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/3.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/4.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/5.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/6.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/7.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/8.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/9.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/10.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/11.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/12.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/13.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/14.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/15.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/16.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/17.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/18.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/19.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/20.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/21.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/22.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/23.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/24.jpg" class="img-big opacity"></div>
+    <div class="grid-item"><img src="./images/grid_pics/25.jpg" class="img-big opacity"></div>
+  
+  </div>
+  
+ 
+  </div>
+
+</div>
+
+
+
+
+ </div> <!-- closing div for the container  -->
+
+
+
+
 </body>
 </html>

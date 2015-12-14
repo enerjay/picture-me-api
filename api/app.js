@@ -36,7 +36,6 @@ app.post('/auth/facebook', function(req, res) {
       return request.get({ url: config.oauth.facebook.profileUrl, qs: accessToken, json: true });
     })
     .then(function(profile) {
-      
       return User.findOne({ email: profile.email })
         .then(function(user) {
           
