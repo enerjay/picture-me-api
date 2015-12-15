@@ -156,7 +156,21 @@ body { font-family: sans-serif; }
 input[type="file"] {
     display: none;
 }
+.btn_image {
+  height: 150px;
+  max-width: 150px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  background-image: url('/images/submit-big.png');
+  background-size: cover;
+  margin-top: 20px;
 
+}
+
+input[type="submit"] {
+    display: none;
+}
 
 .footer {
   height: 50px;
@@ -184,7 +198,5 @@ input[type="file"] {
   padding: 20px;
   
 }
-.btncenter {
-  
-}
+
 
