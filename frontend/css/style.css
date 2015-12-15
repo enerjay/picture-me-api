@@ -132,11 +132,11 @@ body { font-family: sans-serif; }
 .question {
   height: 30px;
   margin-top: 15px;
-  padding: 10px;
-  font-size: 10px;
+  padding: 20px;
+  font-size: 12px;
   border-bottom: 1px solid red;
-  background-color: #E6E6E6;
-  color: grey;
+  background-color: white;
+  color: slategrey;
 }
 
 .choose {
@@ -148,9 +148,10 @@ body { font-family: sans-serif; }
   text-align: center;
   font-style: normal;
   font-size: 10px;
-  border-bottom: 1px solid red;
-  background-color: #999999;
-  color: white;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: white;
+  color: grey;
 }
 
 input[type="file"] {
@@ -172,6 +173,20 @@ input[type="submit"] {
     display: none;
 }
 
+.popup {
+  max-height: 100px;
+  width: 200px;
+  margin-top: 5px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  font-style: normal;
+  font-size: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+}
 .footer {
   height: 50px;
   margin-top: 10px;

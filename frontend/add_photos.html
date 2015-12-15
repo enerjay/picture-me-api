@@ -5,31 +5,21 @@
         <input type="file"ngf-select ng-model="main.file" name="file">
         Choose
     </label>
-    <button type="submit">Submit</button>
- -->
-<p ng-if="main.errorMessage">{{main.errorMessage}}</p>
+    <button type="submit">Submit</button> -->
+
+  <p ng-if="main.errorMessage" class="popup">{{main.errorMessage}}</p>
   <form ng-submit="main.uploadMulti()">
-      <div class="row">
-      
+    <div class="row">
       <div ng-repeat="question in main.questions" ng-if="!question.file">
         <div class="ten columns question"><p>{{question.text}}</p></div>
-        
         <label class="two columns choose">
         <input type="file" ngf-select ng-model="question.file" value="Select File">Choose</label>
         </div>
-        </div>
-        <label class="btn_image">
-      <input type="submit">
+    </div>
+      <label class="btn_image">
+          <input type="submit">
       </label>
-      
   </form>
-
-
-
-
-
-    
-  
 
    <!--  <div class="row">
       <div class="ten columns question">Question 1</div>

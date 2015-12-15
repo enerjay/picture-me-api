@@ -62,14 +62,14 @@ function MainController($auth, Upload, API_URL) {
     { text: "Upload a picture of your favourite place in the universe", file: null },
     { text: "Upload a picture of best friend growing up", file: null },
     { text: "Upload a picture of your best friend as an adult", file: null },
-    { text: "Upload a picture of your favourite memory", file: null },
+    { text: "Upload a picture of your life changing event", file: null },
     { text: "Upload a picture of your favourite home", file: null },
     { text: "Upload a picture of your favourite food", file: null },
     { text: "Upload a picture of your favourite sport", file: null },
-    { text: "Upload a picture of yourself as a child", file: null },
-    { text: "Upload a picture of your favourite moment", file: null },
-    { text: "Upload a picture of your music ", file: null },
-    { text: "Upload a 10 more pictures that best describe you as a person", file: null }
+    { text: "Upload a picture of your saddest memory", file: null },
+    { text: "Upload a picture of your happinest moment", file: null },
+    { text: "Upload a picture of your favourite music artist ", file: null },
+    { text: "Upload a 10 more pictures", file: null }
   ];
 
 
