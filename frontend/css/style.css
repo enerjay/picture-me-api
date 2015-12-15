@@ -1,13 +1,27 @@
 body {
-  background-color: lightgrey;
+  background-color: black;
+  /*background-image: url('/images/bck-repeat4.png');*/
+ /* background-repeat: repeat-y;*/
+  
+  /*background-image:       
+  linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, 
+    transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, 
+    transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, 
+    transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+    height:100%;
+    background-size:50px 50px;*/
 }
 
+h1 {
+  color: silver;
+  font-size: 25px;
+}
 .container {
    margin-top: 20px;
    margin-bottom: 0px;
    width: 100%;
    padding: 30px 30px 15px 30px;
-   border-radius: 30px;
+   border-radius: 10px;
 
    /*outline-offset: 10px;
    outline-radius: 20px;
@@ -136,7 +150,7 @@ body { font-family: sans-serif; }
   font-size: 12px;
   border-bottom: 1px solid red;
   background-color: white;
-  color: slategrey;
+  color: grey;
 }
 
 .choose {
@@ -192,7 +206,7 @@ input[type="submit"] {
   margin-top: 10px;
   width: 100%;
   padding-bottom: 50px;
-  border-radius: 0px 0px 30px 30px;
+  border-radius: 0px 0px 10px 10px;
   background-color: whitesmoke;
 }
 

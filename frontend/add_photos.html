@@ -6,18 +6,19 @@
         Choose
     </label>
     <button type="submit">Submit</button> -->
-
+<h1>Please upload the following</h1>
   <p ng-if="main.errorMessage" class="popup">{{main.errorMessage}}</p>
-  <form ng-submit="main.uploadMulti()">
-    <div class="row">
-      <div ng-repeat="question in main.questions" ng-if="!question.file">
-        <div class="ten columns question"><p>{{question.text}}</p></div>
+    <form ng-submit="main.uploadMulti()">
+      <div class="row">
+          <div ng-repeat="question in main.questions" ng-if="!question.file">
+            <div class="ten columns question"><p>{{question.text}}</p>
+        </div>
         <label class="two columns choose">
         <input type="file" ngf-select ng-model="question.file" value="Select File">Choose</label>
-        </div>
+      </div>
     </div>
       <label class="btn_image">
-          <input type="submit">
+        <input type="submit">
       </label>
   </form>
 

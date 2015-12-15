@@ -58,18 +58,17 @@ function MainController($auth, Upload, API_URL) {
     }
   }
   this.questions = [
-    { text: "Upload a picture of yourself as a child", file: null },
-    { text: "Upload a picture of your favourite place in the universe", file: null },
-    { text: "Upload a picture of best friend growing up", file: null },
-    { text: "Upload a picture of your best friend as an adult", file: null },
-    { text: "Upload a picture of your life changing event", file: null },
-    { text: "Upload a picture of your favourite home", file: null },
-    { text: "Upload a picture of your favourite food", file: null },
-    { text: "Upload a picture of your favourite sport", file: null },
-    { text: "Upload a picture of your saddest memory", file: null },
-    { text: "Upload a picture of your happinest moment", file: null },
-    { text: "Upload a picture of your favourite music artist ", file: null },
-    { text: "Upload a 10 more pictures", file: null }
+    { text: "1. Upload a picture of yourself as a child", file: null },
+    { text: "2. Upload a picture of your favourite place in the universe", file: null },
+    { text: "3. Upload a picture of best friend growing up", file: null },
+    { text: "4. Upload a picture of your best friend as an adult", file: null },
+    { text: "5. Upload a picture of your life changing event", file: null },
+    { text: "6. Upload a picture of your favourite home", file: null },
+    { text: "7. Upload a picture of your favourite food", file: null },
+    { text: "8. Upload a picture of your favourite sport", file: null },
+    { text: "9. Upload a picture of your saddest memory", file: null },
+    { text: "10. Upload a picture of your happinest moment", file: null },
+    { text: "11. Upload a 10 more pictures", file: null }
   ];
 
 
