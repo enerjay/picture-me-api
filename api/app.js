@@ -1,4 +1,6 @@
 var express = require('express');
+var multer = require('multer');
+var s3 = require('multer-s3');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -9,6 +11,7 @@ var qs = require('qs');
 var app = express();
 var config = require('./config');
 var User = require('./models/user');
+var uuid = require('uuid');
 
 mongoose.connect(config.databaseUrl);
 
@@ -19,6 +22,37 @@ app.use(cors({
   origin: config.appUrl,
   credentials: true
 }));
+
+var upload = multer({
+  storage: s3({
+    dirname: 'uploads',
+    bucket: 'picture-me',
+    secretAccessKey: process.env.AWS_PICTUREME_SECRET,
+    accessKeyId: process.env.AWS_PICTUREME_KEY,
+    region: 'eu-west-1',
+    contentType: function(req, file, next) {
+      next(null, file.mimetype);
+    },
+    filename: function(req, file, next) {
+      var ext = '.' + file.originalname.split('.').splice(-1)[0];
+      var filename = uuid.v1() + ext;
+      next(null, filename);
+    }
+  })
+});
+
+
+app.post('/upload/single', upload.single('file'), function(req, res) {
+  res.status(200).json({ filename: req.file.key });
+});
+
+
+app.post('/upload/multi', upload.array('files'), function(req, res) {
+  filenames = Object.keys(req.files).map(function(key) {
+    return req.files[key].key;
+  });
+  res.status(200).json({ filenames: filenames });
+});
 
 
 app.post('/auth/facebook', function(req, res) {

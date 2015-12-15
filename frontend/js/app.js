@@ -1,5 +1,5 @@
 angular
-  .module('picturemeApp', ['satellizer', 'ui.router'])
+  .module('picturemeApp', ['satellizer', 'ui.router', 'ngFileUpload'])
   .constant('API_URL', 'http://localhost:3000')
   .config(oauthConfig)
   .config(MainRouter);
@@ -15,13 +15,13 @@ function oauthConfig(API_URL, $authProvider) {
 
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('index', { //'home is a name ---so we canrefer to this stste later
-      url: "", // a relative url -- so angular can match the route to this state. 
-      templateUrl: "home.html" // the name of the file that contains our html for this state (a template)
+    .state('index', { 
+      url: "", 
+      templateUrl: "home.html"  
     })
-    .state('home', { //'home is a name ---so we canrefer to this stste later
-      url: "/", // a relative url -- so angular can match the route to this state. 
-      templateUrl: "home.html" // the name of the file that contains our html for this state (a template)
+    .state('home', { 
+      url: "/", 
+      templateUrl: "home.html" 
     })
     .state('add_photos', {
       url: "/add_photos", 
@@ -33,7 +33,8 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     })
     .state('picture_me', {
       url: "/picture_me",
-      templateUrl: "picture_me.html"
+      templateUrl: "picture_me.html",
+      controller: "GridController"
     })
     .state('share', {
       url: "/share", 

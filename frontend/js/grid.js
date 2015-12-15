@@ -1,9 +1,7 @@
-$(document).ready( function() {
-
+function initializeMasonryGrid() {
   $('.grid').masonry({
     itemSelector: '.grid-item',
     columnWidth: 100
   });
-  
-});
+};
 
