@@ -1,71 +1,56 @@
-<main>
-<!-- <form name="main.form" ng-submit="main.uploadSingle()">
-
-    <label class="two columns choose">
-        <input type="file"ngf-select ng-model="main.file" name="file">
-        Choose
-    </label>
-    <button type="submit">Submit</button> -->
-<h1>Please upload the following</h1>
+<!-- <main> -->
+  <!-- hide this stuff if there are images in the images array -->
+  <h1>Please upload the following</h1>
   <p ng-if="main.errorMessage" class="popup">{{main.errorMessage}}</p>
-    <form ng-submit="main.uploadMulti()">
-      <div class="row">
-          <div ng-repeat="question in main.questions" ng-if="!question.file">
-            <div class="ten columns question"><p>{{question.text}}</p>
-        </div>
+  <form ng-submit="main.uploadMulti()">
+    <div class="row">
+      <div ng-repeat="question in main.questions" ng-if="!question.file">
+      <div class="ten columns question"><p>{{question.text}}</p>
+      </div>
         <label class="two columns choose">
         <input type="file" ngf-select ng-model="question.file" value="Select File">Choose</label>
       </div>
     </div>
-      <label class="btn_image">
-        <input type="submit">
-      </label>
+    <label class="btn_image">
+      <input type="submit">
+    </label>
   </form>
 
-   <!--  <div class="row">
-      <div class="ten columns question">Question 1</div>
-      <div class="two columns choose">Choose</div> -->
-    
-    <!-- <div class="row">
-      <div class="ten columns question">Question 2</div>
-      <div class="two columns choose">Choose</div>
+  <!-- show this stuff if there are images in the images array -->
+  <main>
+    <div class="grid">
+      <!-- this will show each image in the images array using ng-repeat -->
+      <div class="grid-item"><img src="./images/grid_pics/1.jpg" class="img-big opacity size zoom image"></div>
+      <div class="grid-item"><img src="./images/grid_pics/2.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/3.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/4.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/5.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/6.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/7.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/8.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/9.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/10.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/11.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/12.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/13.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/14.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/15.jpg" class="img-big opacity size "></div>
+      <div class="grid-item"><img src="./images/grid_pics/16.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/17.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/18.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/19.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/20.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/21.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/22.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/23.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/24.jpg" class="img-big opacity size"></div>
+      <div class="grid-item"><img src="./images/grid_pics/25.jpg" class="img-big opacity size"></div>
     </div>
-    <div class="row">
-      <div class="ten columns question">Question 3</div>
-      <div class="two columns choose">Choose</div>
-    </div>
-    <div class="row">
-      <div class="ten columns question">Question 4</div>
-      <div class="two columns choose">Choose</div>
-    </div>
-    <div class="row">
-      <div class="ten columns question">Question 5</div>
-      <div class="two columns choose">Choose</div>
-    </div>
-    <div class="row">
-      <div class="ten columns question">Question 6</div>
-      <div class="two columns choose">Choose</div>
-    </div>
-    <div class="row">
-      <div class="ten columns question">Question 7</div>
-      <div class="two columns choose">Choose</div>
-    </div>
-    <div class="row">
-      <div class="ten columns question">Question 8</div>
-      <div class="two columns choose">Choose</div>
-    </div>
-    <div class="row">
-      <div class="ten columns question">Question 9</div>
-      <div class="two columns choose">Choose</div>
-    </div>
-    <div class="row">
-      <div class="ten columns question">Question 10</div>
-      <div class="two columns choose">Choose</div>
-    </div>
-      <div class="container footer">
-      <div class="next">Next</div>
-    </div> -->
-    </form>
 
-</main>
+    <div class="container footer">
+      <div class="next">Share</div>
+    </div>
+  </main>
+
+<!-- </main> -->
  

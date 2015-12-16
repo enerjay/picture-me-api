@@ -8,6 +8,7 @@ function MainController($auth, Upload, API_URL) {
   var self = this;
 
   self.files = [];
+  self.images = [];
 
   this.authenticate = function(provider) {
     $auth.authenticate(provider);
@@ -47,7 +48,10 @@ function MainController($auth, Upload, API_URL) {
       })
       .then(function(res) {
         console.log("Success!");
-        console.log(res);
+        // res.data.filenames
+        self.images = res.data.filenames.map(function(filename) {
+          return S3_URL + filename;
+        });
       })
       .catch(function(err) {
         console.error(err);
@@ -58,17 +62,17 @@ function MainController($auth, Upload, API_URL) {
     }
   }
   this.questions = [
-    { text: "1. Upload a picture of yourself as a child", file: null },
-    { text: "2. Upload a picture of your favourite place in the universe", file: null },
-    { text: "3. Upload a picture of best friend growing up", file: null },
-    { text: "4. Upload a picture of your best friend as an adult", file: null },
-    { text: "5. Upload a picture of your life changing event", file: null },
-    { text: "6. Upload a picture of your favourite home", file: null },
-    { text: "7. Upload a picture of your favourite food", file: null },
-    { text: "8. Upload a picture of your favourite sport", file: null },
-    { text: "9. Upload a picture of your saddest memory", file: null },
-    { text: "10. Upload a picture of your happinest moment", file: null },
-    { text: "11. Upload a 10 more pictures", file: null }
+    { text: "1. A picture of yourself as a child", file: null },
+    { text: "2. A picture of your favourite place in the universe", file: null },
+    { text: "3. A picture of best friend growing up", file: null },
+    { text: "4. A picture of your best friend as an adult", file: null },
+    { text: "5. A picture of your life changing event", file: null },
+    { text: "6. A picture of your favourite home", file: null },
+    { text: "7. A picture of your favourite food", file: null },
+    { text: "8. A picture of your favourite sport", file: null },
+    { text: "9. A picture of your saddest memory", file: null },
+    { text: "10. A picture of your happinest moment", file: null },
+    { text: "11. 10 more favourite pictures", file: null }
   ];
 
 

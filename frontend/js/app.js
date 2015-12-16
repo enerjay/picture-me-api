@@ -1,6 +1,7 @@
 angular
   .module('picturemeApp', ['satellizer', 'ui.router', 'ngFileUpload'])
   .constant('API_URL', 'http://localhost:3000')
+  .constant('S3_URL', 'https://s3-eu-west-1.amazonaws.com/picture-me/')
   .config(oauthConfig)
   .config(MainRouter);
 
@@ -25,7 +26,8 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     })
     .state('add_photos', {
       url: "/add_photos", 
-      templateUrl: "add_photos.html"
+      templateUrl: "add_photos.html",
+      controller: "GridController"
     })
     .state('submit_photos', {
       url: "/submit_photos", 
