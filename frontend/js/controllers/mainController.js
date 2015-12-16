@@ -8,31 +8,7 @@ function MainController($auth, Upload, API_URL, S3_URL, $rootScope, $timeout) {
   var self = this;
 
   self.files = [];
-  self.images = ["https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg",
-    "https://s3-eu-west-1.amazonaws.com/picture-me/uploads/ee908780-a401-11e5-8788-8d0da8b33d2b.jpg"];
+  self.images = [];
 
   $rootScope.$on('$stateChangeSuccess', function() {
     $timeout(function() {
@@ -82,8 +58,8 @@ function MainController($auth, Upload, API_URL, S3_URL, $rootScope, $timeout) {
 
         // res.data.filenames
         self.images = res.data.filenames.map(function(filename) {
+          console.log(self.images);
           return S3_URL + filename;
-          console.log(images)
         });
       })
       .catch(function(err) {

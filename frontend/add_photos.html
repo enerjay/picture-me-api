@@ -24,8 +24,8 @@
   <main >
     <div class="grid" ng-show="(main.images.length > 0)">
       <!-- this will show each image in the images array using ng-repeat -->
-      <div class="grid-item" ng-repeat="image in main.images track by $index">
-        <img ng-src="{{image}}" class="img-big opacity size zoom image">
+      <div class="grid-item" ng-repeat="image in main.images">
+        <img ng-src="{{image}}" class="img-big opacity size zoom image img-zoom">
       </div>
     </div>
 
