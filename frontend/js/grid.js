@@ -6,8 +6,8 @@ function initializeMasonryGrid() {
   $('.img-zoom').click(function() {
           $(this).addClass('transition');
    
-      }, function() {
-          $(this).removeClass('transition');
+      // }, function() {
+      //     $(this).removeClass('transition');
       });  
 };
 
