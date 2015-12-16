@@ -2,8 +2,8 @@ angular
   .module('picturemeApp')
   .controller('MainController', MainController);
 
-MainController.$inject = ['$auth', 'Upload', 'API_URL'];
-function MainController($auth, Upload, API_URL) {
+MainController.$inject = ['$auth', 'Upload', 'API_URL', 'S3_URL'];
+function MainController($auth, Upload, API_URL, S3_URL) {
 
   var self = this;
 
@@ -15,7 +15,6 @@ function MainController($auth, Upload, API_URL) {
   }
 
   this.file = null;
-
   this.uploadSingle = function() {
     
     Upload.upload({
@@ -48,10 +47,13 @@ function MainController($auth, Upload, API_URL) {
       })
       .then(function(res) {
         console.log("Success!");
+
         // res.data.filenames
         self.images = res.data.filenames.map(function(filename) {
           return S3_URL + filename;
         });
+
+        console.log(self.images)
       })
       .catch(function(err) {
         console.error(err);
@@ -72,7 +74,17 @@ function MainController($auth, Upload, API_URL) {
     { text: "8. A picture of your favourite sport", file: null },
     { text: "9. A picture of your saddest memory", file: null },
     { text: "10. A picture of your happinest moment", file: null },
-    { text: "11. 10 more favourite pictures", file: null }
+    { text: "11. 10 more favourite pictures", file: null },
+    { text: "12. A picture of your favourite place in the universe", file: null },
+    { text: "13. A picture of best friend growing up", file: null },
+    { text: "14. A picture of your best friend as an adult", file: null },
+    { text: "15. A picture of your life changing event", file: null },
+    { text: "16. A picture of your favourite home", file: null },
+    { text: "17. A picture of your favourite food", file: null },
+    { text: "18. A picture of your favourite sport", file: null },
+    { text: "19. A picture of your saddest memory", file: null },
+    { text: "20. A picture of your happinest moment", file: null }
+   
   ];
 
 
