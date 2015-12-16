@@ -4,9 +4,9 @@ angular
 
 function GridController() {
 
-  if(!$('.grid').hasClass('initialized')) {
-    initializeMasonryGrid();
-    $('.grid').addClass('initialized');
-  }
+  // if(!$('.grid').hasClass('initialized')) {
+  //   initializeMasonryGrid();
+  //   $('.grid').addClass('initialized');
+  // }
   
 };

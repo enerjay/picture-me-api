@@ -21,10 +21,11 @@
 
   <!-- show this stuff if there are images in the images array -->
 
-  <main>
+  <main >
     <div class="grid" ng-show="(main.images.length > 0)">
+
       <!-- this will show each image in the images array using ng-repeat -->
-      <div class="grid-item" ng-repeat="image in main.images">
+      <div class="grid-item" ng-repeat="image in main.images track by $index">
         <img ng-src="{{image}}" class="img-big opacity size zoom image">
       </div>
     </div>

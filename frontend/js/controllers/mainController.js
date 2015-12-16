@@ -2,14 +2,22 @@ angular
   .module('picturemeApp')
   .controller('MainController', MainController);
 
-MainController.$inject = ['$auth', 'Upload', 'API_URL', 'S3_URL'];
-function MainController($auth, Upload, API_URL, S3_URL) {
+MainController.$inject = ['$auth', 'Upload', 'API_URL', 'S3_URL', '$rootScope', '$timeout'];
+function MainController($auth, Upload, API_URL, S3_URL, $rootScope, $timeout) {
 
   var self = this;
 
   self.files = [];
   self.images = [];
 
+  $rootScope.$on('$stateChangeSuccess', function() {
+    $timeout(function() {
+      if(!$('.grid').hasClass('initialized')) {
+        initializeMasonryGrid();
+        $('.grid').addClass('initialized');
+      }
+    });
+  });
   this.authenticate = function(provider) {
     $auth.authenticate(provider);
   }
@@ -52,8 +60,6 @@ function MainController($auth, Upload, API_URL, S3_URL) {
         self.images = res.data.filenames.map(function(filename) {
           return S3_URL + filename;
         });
-
-        console.log(self.images)
       })
       .catch(function(err) {
         console.error(err);
@@ -83,7 +89,12 @@ function MainController($auth, Upload, API_URL, S3_URL) {
     { text: "17. A picture of your favourite food", file: null },
     { text: "18. A picture of your favourite sport", file: null },
     { text: "19. A picture of your saddest memory", file: null },
-    { text: "20. A picture of your happinest moment", file: null }
+    { text: "20. A picture of your happinest moment", file: null },
+    { text: "21. A picture of your favourite home", file: null },
+    { text: "22. A picture of your favourite food", file: null },
+    { text: "23. A picture of your favourite sport", file: null },
+    { text: "24. A picture of your saddest memory", file: null },
+    { text: "25. A picture of your happinest moment", file: null }
    
   ];
 
