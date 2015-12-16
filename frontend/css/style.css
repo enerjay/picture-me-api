@@ -101,20 +101,20 @@ body { font-family: sans-serif; }
 /* ---- masonry grid ---- */
 
 .img-big:hover {
-  -webkit-transform: scale(1.5);
+  /*-webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
   -ms-transform: scale(1.5);
   -o-transform: scale(1.5);
-  transform: scale(2.0);
+  transform: scale(2.0);*/
   opacity: 1;
-  -webkit-box-shadow: 0 0 2em #000;
-  box-shadow: 0 0 2em #000;
+  
       }
 
 
 .grid {
   max-width: 500px;
   max-height: 500px;
+  background-color: transparent;
   margin: 0 auto;
   background-image: url('/images/me.jpg');
   position: absolute;
@@ -125,19 +125,26 @@ body { font-family: sans-serif; }
 
 .grid-item {
   height: 100px;
-  width: 100px;
+  max-width: 100px;
   overflow: hidden;
-  border: 1px solid ghostwhite;
+  /*transition: visibility 0s 2s, opacity 2s linear;*/
+  /*border: 1px solid ghostwhite;*/
   background-size:contain;
   background-position:center;
   
 }
 
-.grid-item:hover {
+.grid-item:active { 
   overflow: visible;
-  height: 300px;
+  border: 0px solid ghostwhite;
+  max-height: 500px;
   width: 100%;
-
+  /*transition: opacity 5s linear;*/
+  transition: 5s ease-in;
+  transition: 5s ease-out;
+  opacity: 1;
+  
+  
 }
 
   .grid-item--width2 { width: 320px; }
@@ -231,16 +238,25 @@ input[type="submit"] {
   max-height: 300px;
   text-align: center;
   margin: 0 auto;
-  padding: 20px;
-  
+  padding: 20px; 
 }
 
 .img-zoom {
-    width: 310px;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -ms-transition: all .2s ease-in-out;
+    /*height: 300px;
+    width: auto;*/
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(2.0);
+    transform-duration: 2s;
+    -webkit-box-shadow: 0 0 4em #000;
+    box-shadow: 0 0 2em #000;
+    transition: 5s ease;
+    /*-webkit-transition: all 0.3s ease-out-in;
+    -moz-transition: all 0.3s ease-out-in;
+    -o-transition: all 0.3s ease-out-in;
+    -ms-transition: all 0.3s ease-out-in;*/
 }
  
 .transition {

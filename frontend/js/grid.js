@@ -3,7 +3,7 @@ function initializeMasonryGrid() {
     itemSelector: '.grid-item',
     columnWidth: 100
   });
-  $('.img-zoom').hover(function() {
+  $('.img-zoom').click(function() {
           $(this).addClass('transition');
    
       }, function() {
