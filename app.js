@@ -12,6 +12,7 @@ var app = express();
 var config = require('./config');
 var User = require('./models/user');
 var uuid = require('uuid');
+var expressJWT = require('express-jwt');
 
 mongoose.connect(config.databaseUrl);
 
@@ -22,6 +23,16 @@ app.use(cors({
   origin: config.appUrl,
   credentials: true
 }));
+
+app.use('/', expressJWT({ secret: config.secret })
+  .unless({ path: '/auth/facebook', method: 'post' }));
+
+app.use(function(err, req, res, next) {
+  if(err.name === 'UnauthorizedError') {
+    res.status(401).json({ message: "Invalid token" });
+  }
+  next();
+});
 
 var upload = multer({
   storage: s3({
@@ -41,17 +52,45 @@ var upload = multer({
   })
 });
 
-
-app.post('/upload/single', upload.single('file'), function(req, res) {
-  res.status(200).json({ filename: req.file.key });
+app.get('/user', function(req, res) {
+  console.log(req.user);
+  User.findOne({ _id: req.user._id }, function(err, user) {
+    if(err) return res.status(404).json({ message: "Could not find user!" });
+    res.status(200).json({ user: user });
+  });
 });
 
+// app.post('/upload/single', upload.single('file'), function(req, res) {
+//   res.status(200).json({ filename: req.file.key });
+// });
+
+app.post('/upload/face', upload.single('file'), function(req, res) {
+
+    User.findOne({ _id: req.user._id }, function(err, user) {
+      if(err || !user) return res.status(404).json({ message: "Could not find user!" });
+      user.picture = 'https://s3-eu-west-1.amazonaws.com/picture-me/' + req.file.key;
+
+      user.save(function(err, user) {
+        if(err) return res.status(500).json({ message: "Error saving user!" });
+        res.status(200).json({ picture: user.picture });
+      });
+    });
+});
 
 app.post('/upload/multi', upload.array('files'), function(req, res) {
   filenames = Object.keys(req.files).map(function(key) {
-    return req.files[key].key;
+    return 'https://s3-eu-west-1.amazonaws.com/picture-me/' + req.files[key].key;
   });
-  res.status(200).json({ filenames: filenames });
+
+  User.findOne({ _id: req.user._id }, function(err, user) {
+    if(err || !user) return res.status(404).json({ message: "Could not find user!" });
+    user.images = filenames;
+
+    user.save(function(err, user) {
+      if(err) return res.status(500).json({ message: "Error saving user!" });
+      res.status(200).json({ filenames: filenames });
+    });
+  });
 });
 
 
