@@ -54,10 +54,37 @@ var upload = multer({
 
 app.get('/user', function(req, res) {
   console.log(req.user);
+  // TODO: handle non-logged-in user
   User.findOne({ _id: req.user._id }, function(err, user) {
     if(err) return res.status(404).json({ message: "Could not find user!" });
     res.status(200).json({ user: user });
   });
+});
+
+app.delete('/user', function(req, res) {
+  console.log(req.user);
+
+  if(req.user) {
+    User.remove({ _id: req.user._id }, function(err) {
+      if(err) return res.status(500).json({ message: "Could not delete user!" });
+      res.status(204).send();
+    });
+  }
+  else {
+    return res.status(401).json({ message: "You must be logged in to perform this action" });
+  }
+});
+
+app.delete('/user/pictures', function(req, res) {
+  if(req.user) {
+    User.update({ _id: req.user._id }, { $set: { images: [] } }, { new: true }, function(err, user) {
+      if(err) return res.status(500).json({ message: "Could not delete user images!" });
+      res.status(200).json({ user: user });
+    });
+  }
+  else {
+    return res.status(401).json({ message: "You must be logged in to perform this action" });
+  }
 });
 
 // app.post('/upload/single', upload.single('file'), function(req, res) {
@@ -93,7 +120,6 @@ app.post('/upload/multi', upload.array('files'), function(req, res) {
   });
 });
 
-
 app.post('/auth/facebook', function(req, res) {
   var params = {
     code: req.body.code,
@@ -107,10 +133,9 @@ app.post('/auth/facebook', function(req, res) {
       return request.get({ url: config.oauth.facebook.profileUrl, qs: accessToken, json: true });
     })
     .then(function(profile) {
-      return User.findOne({ email: profile.email })
+      return User.findOne({ facebookId: profile.id })
         .then(function(user) {
           if(user) {
-            user.facebookId = profile.id;
             user.picture = user.picture || profile.picture.data.url;
           }
           else {
