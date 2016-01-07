@@ -19,10 +19,13 @@ mongoose.connect(config.databaseUrl);
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors({
-  origin: config.appUrl,
-  credentials: true
-}));
+// app.use(cors({
+//   origin: config.appUrl,
+//   credentials: true
+// }));
+
+app.use(cors());
+
 
 app.use('/', expressJWT({ secret: config.secret })
   .unless({ path: '/auth/facebook', method: 'post' }));
