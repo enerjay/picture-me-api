@@ -123,7 +123,6 @@ app.post('/upload/multi', upload.array('files'), function(req, res) {
 });
 
 app.post('/auth/facebook', function(req, res) {
-  console.log(req.body);
 
   var params = {
     code: req.body.code,

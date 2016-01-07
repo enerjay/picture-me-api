@@ -11,7 +11,3 @@ module.exports = {
     
   }
 }
-
-// process.env.FRONT_END_URL || 
-//  || 'http://enerjay.github.io/picture-me-frontend/'
-// || 'http://enerjay.github.io/picture-me-frontend/#/'
