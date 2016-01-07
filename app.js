@@ -123,11 +123,13 @@ app.post('/upload/multi', upload.array('files'), function(req, res) {
 });
 
 app.post('/auth/facebook', function(req, res) {
+  console.log(req.body);
+
   var params = {
     code: req.body.code,
     client_id: req.body.clientId,
     client_secret: process.env.FACEBOOK_API_SECRET,
-    redirect_uri: config.appUrl + "#/",
+    redirect_uri: config.appUrl + "/",
     scope: 'user_birthday'
   };
   request.get({ url: config.oauth.facebook.accessTokenUrl, qs: params, json: true })
