@@ -55,6 +55,7 @@ var upload = multer({
 app.get('/user', function(req, res) {
   console.log(req.user);
   // TODO: handle non-logged-in user
+  
   User.findOne({ _id: req.user._id }, function(err, user) {
     if(err) return res.status(404).json({ message: "Could not find user!" });
     res.status(200).json({ user: user });
